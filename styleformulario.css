@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #6a8edb, #b3c7f9);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #222;
+}
+
+section#formulario {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+section#formulario h2 {
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  color: #1a237e;
+}
+
+form.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #37474f;
+}
+
+input[type="number"],
+select {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 2px solid #cfd8dc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #1a237e;
+  outline: none;
+  box-shadow: 0 0 8px rgba(26, 35, 126, 0.4);
+}
+
+button[type="submit"] {
+  margin-top: 10px;
+  background-color: #1a237e;
+  color: #fff;
+  font-weight: 700;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #3949ab;
+}
+
+#conselho {
+  margin-top: 30px;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #303f9f;
+  min-height: 48px;
+  user-select: text;
+}
+
+@media (max-width: 460px) {
+  section#formulario {
+    padding: 25px 20px;
+    max-width: 320px;
+  }
+}

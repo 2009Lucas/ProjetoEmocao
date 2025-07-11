@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Gorditas:wght@400;700&family=Pixelify+Sans:wght@400..700&display=swap');
+body {
+   font-family: "Pixelify Sans", sans-serif;
+  background: linear-gradient(to right, #ff8f07, #fbff19);
+  margin: 0;
+  padding: 0;
+  color: #333;
+ 
+  animation: fadeIn 1.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+ 
+.infantil {
+  padding: 2rem;
+  margin: 2rem;
+  background-color: #fffaf0;
+  border-radius: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.infantil h2 {
+  font-family: "Gorditas", serif;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  color: #000000;
+  font-size: 4.2rem;
+  margin-bottom: 1.5rem;
+}
+
+
+.infantil p {
+  text-align: justify;
+  font-size: 2.6rem;
+  padding: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.baloes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.balao1 {
+  background-color: rgb(220, 0, 220);
+  padding: 1.3rem;
+  border-radius: 25px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  animation: bounceIn 0.6s ease;
+}
+.balao2 {
+  background-color: #33ff00;
+  padding: 1.3rem;
+  border-radius: 25px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  animation: bounceIn 0.6s ease;
+}
+.balao3 {
+  background-color: #00eeff;
+  padding: 1.3rem;
+  border-radius: 25px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  animation: bounceIn 0.6s ease;
+}
+.balao4 {
+  background-color: #eaff00;
+  padding: 1.3rem;
+  border-radius: 25px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  animation: bounceIn 0.6s ease;
+}
+
+.balao1:hover {
+  transform: scale(1.02);
+  background-color: rgb(93, 0, 93);
+  color: white;
+}
+.balao2:hover {
+  transform: scale(1.02);
+  background-color: green;
+  color: white;
+}
+.balao3:hover {
+  transform: scale(1.02);
+  background-color: #1789be;
+  color: white;
+}
+.balao4:hover {
+  transform: scale(1.02);
+  background-color: rgb(212, 177, 0);
+  color: white;
+}
+
+
+.balao::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 40px;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: #fff;
+}
+
+.balao h2 {
+  margin-top: 0;
+  color: #000000;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.imagem-exemplo {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.imagem-exemplo img {
+  max-width: 90%;
+  border-radius: 15px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.imagem-exemplo img:hover {
+  transform: scale(1.03);
+}
+
+.personagens {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 1rem;
+}
+
+.personagens img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.personagens img:hover {
+  transform: scale(1.1);
+}
+
+#descricao {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.info {
+  display: none;
+  background-color: #ffeaa7;
+  border-left: 6px solid #e17055;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.5s ease;
+   text-align: justify;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.info h2 {
+  margin-top: 0;
+  color: #2d3436;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .balao::after {
+    left: 20px;
+  }
+
+  .personagens {
+    gap: 0.5rem;
+  }
+
+  .personagens img {
+    width: 80px;
+    height: 80px;
+  }
+}
+#alegria{
+  background-color: rgb(255, 231, 51);
+  color: #000000;
+  border: 2px solid black;
+}
+#tristeza{
+  background-color: rgb(0, 166, 255);
+  color: #000000;
+  border: 2px solid black;
+}
+#raiva{
+  background-color: rgb(255, 129, 100);
+  color: #000000;
+  border: 2px solid black;
+}
+#medo{
+  background-color: rgb(174, 98, 255);
+  color: #000000;
+  border: 2px solid black;
+}
+#nojinho{
+  background-color: rgb(74, 255, 74);
+  color: #000000;
+  border: 2px solid black;
+}
+#alegria h2{
+  color: #000000;
+}
+#tristeza h2{
+  color: #000000;
+}
+#raiva h2{
+  color: #000000;
+}
+#medo h2{
+  color: #000000;
+}
+#nojinho h2{
+  color: #000000;
+}

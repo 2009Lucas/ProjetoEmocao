@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0080ff;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+header.cabecalho {
+  text-align: center;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #00539C;
+  padding-bottom: 15px;
+}
+
+header.cabecalho h1 {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+header.cabecalho p {
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+section {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 25px 30px;
+  margin-bottom: 30px;
+}
+
+section#adolescentes h2,
+section#adolescentes h3 {
+  color: #003366;
+  font-weight: 700;
+}
+
+section#adolescentes h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #00539C;
+  padding-bottom: 8px;
+}
+
+section#adolescentes h3 {
+  margin-top: 30px;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+section#adolescentes p,
+section#adolescentes ul li {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+section#adolescentes ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+section#adolescentes ul li strong {
+  color: #002244;
+}
+
+.imagem-exemplo,
+.bloco-texto-imagem {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.imagem-exemplo img,
+.bloco-texto-imagem img,
+.topico img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  margin-top: 12px;
+}
+
+.imagem-exemplo p,
+.bloco-texto-imagem .legenda {
+  font-style: italic;
+  color: #666;
+  margin-top: 8px;
+}
+
+.bloco-texto-imagem {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bloco-texto-imagem .texto {
+  flex: 1 1 300px;
+  min-width: 280px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.bloco-texto-imagem .texto img {
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+.topico ul {
+  margin-left: 20px;
+  list-style-type: square;
+}
+
+.topico ul li {
+  margin-bottom: 8px;
+}
+
+nav {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+footer.rodape {
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #888;
+  border-top: 1px solid #ddd;
+  color: white;
+}
+
+@media (max-width: 720px) {
+  .bloco-texto-imagem {
+    flex-direction: column;
+  }
+  section {
+    padding: 20px;
+  }
+}
+#adolescentes{
+  background-color: rgb(125, 210, 255);
+}

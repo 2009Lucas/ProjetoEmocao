@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crianças</title>
+  <link rel="stylesheet" href="stylecrianca.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section id="criancas" class="infantil">
+    <h2>👧 Crianças (6 a 12 anos)</h2>
+    <p><strong>A INFÂNCIA É UMA FASE FUNDAMENTAL PARA O DESENVOLVIMENTO EMOCIONAL, SOCIAL E COGNITIVO...</strong></p>
+
+    <div class="baloes">
+      <div class="balao1">
+        <h2>🧠 Conceitos</h2>
+        <p>Desenvolver empatia, respeito, cooperação e autorregulação com brincadeiras e histórias.</p>
+      </div>
+      <div class="balao2">
+        <h2>📊 Fatos</h2>
+        <p>O cérebro se desenvolve rapidamente nessa fase. Ambientes afetivos são essenciais.</p>
+      </div>
+      <div class="balao3">
+        <h2>🎨 Curiosidades</h2>
+        <p>Desenhos e histórias aumentam empatia e controle emocional. Arte é linguagem poderosa.</p>
+      </div>
+      <div class="balao4">
+        <h2>💡 Como lidar</h2>
+        <p>Crie rotinas, valide sentimentos, mantenha o diálogo e use jogos simbólicos.</p>
+      </div>
+    </div>
+
+    <div class="imagem-exemplo">
+      <img src="./Assets/img/CriancasBrin.jpg" alt="Crianças brincando e aprendendo">
+      <p><strong>MOMENTOS DE VIVÊNCIA FORTALECEM VÍNCULOS E EMOÇÕES POSITIVAS.</strong></p>
+    </div>
+  </section>
+
+  <section class="personagens">
+    <img src="./Assets/img/AlegriaImagem.webp" alt="Alegria" onclick="mostrar('alegria')">
+    <img src="./Assets/img/TristeImagem.jpg" alt="Tristeza" onclick="mostrar('tristeza')">
+    <img src="./Assets/img/RaivaImagem.jpg" alt="Raiva" onclick="mostrar('raiva')">
+    <img src="./Assets/img/MedoImagem.png" alt="Medo" onclick="mostrar('medo')">
+    <img src="./Assets/img/NojoImagem.jpg" alt="Nojinho" onclick="mostrar('nojinho')">
+  </section>
+
+  <section id="descricao">
+    <div id="alegria" class="info">
+      <h2>😊 ALEGRIA</h2>
+      <p>A Alegria nos ajuda a ver o lado bom da vida...</p>
+    </div>
+    <div id="tristeza" class="info">
+      <h2>😢 TRISTEZA</h2>
+      <p>A Tristeza mostra quando algo nos machuca...</p>
+    </div>
+    <div id="raiva" class="info">
+      <h2>😡 RAIVA</h2>
+      <p>A Raiva aparece quando achamos algo injusto...</p>
+    </div>
+    <div id="medo" class="info">
+      <h2>😨 MEDO</h2>
+      <p>O Medo nos protege do perigo...</p>
+    </div>
+    <div id="nojinho" class="info">
+      <h2>🤢 NOJINHO</h2>
+      <p>O Nojinho nos protege do que pode fazer mal...</p>
+    </div>
+  </section>
+
+  <script>
+    function mostrar(emocao) {
+      document.querySelectorAll('.info').forEach(div => {
+        div.style.display = 'none';
+      });
+      document.getElementById(emocao).style.display = 'block';
+    }
+  </script>
+</body>
+</html>

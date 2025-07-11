@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emoções com Divertidamente</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      color: #333;
+    }
+
+    /* Cabeçalho */
+    .header {
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Personagens */
+    .personagens {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+
+    .personagem {
+      background: white;
+      border-radius: 20px;
+      border: 5px solid transparent;
+      padding: 15px;
+      width: 150px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, border 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .personagem:hover {
+      transform: scale(1.05);
+    }
+
+    /* Cores por emoção */
+    .alegria {
+      border-color: #FFD700;
+    }
+    .tristeza {
+      border-color: #5DADE2;
+    }
+    .raiva {
+      border-color: #E74C3C;
+    }
+    .medo {
+      border-color: #8E44AD;
+    }
+    .nojinho {
+      border-color: #2ECC71;
+    }
+
+    .titulo-personagem {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal.hidden {
+      display: none;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      animation: zoomIn 0.4s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .modal-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .modal-text {
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      color: #555;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close-button:hover {
+      color: #000;
+    }
+
+    /* Animações */
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      .personagem {
+        width: 120px;
+      }
+
+      .modal-content {
+        padding: 20px;
+      }
+
+      .modal-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Explore as Emoções</h1>
+    <p>Clique nos personagens e descubra mais sobre cada emoção!</p>
+  </header>
+
+  <main class="personagens">
+    <button onclick="openModal('alegria')" class="personagem alegria">
+      <img src="./Assets/img/AlegriaImagem.webp" alt="Alegria" />
+      <p class="titulo-personagem">Alegria</p>
+    </button>
+
+    <button onclick="openModal('tristeza')" class="personagem tristeza">
+      <img src="./Assets/img/TristeImagem.jpg" alt="Tristeza" />
+      <p class="titulo-personagem">Tristeza</p>
+    </button>
+
+    <button onclick="openModal('raiva')" class="personagem raiva">
+      <img src="./Assets/img/RaivaImagem.jpg" alt="Raiva" />
+      <p class="titulo-personagem">Raiva</p>
+    </button>
+
+    <button onclick="openModal('medo')" class="personagem medo">
+      <img src="./Assets/img/MedoImagem.png" alt="Medo" />
+      <p class="titulo-personagem">Medo</p>
+    </button>
+
+    <button onclick="openModal('nojinho')" class="personagem nojinho">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2e/Disgust_%28Inside_Out%29.png/200px-Disgust_%28Inside_Out%29.png" alt="Nojinho" />
+      <p class="titulo-personagem">Nojinho</p>
+    </button>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button onclick="closeModal()" class="close-button">&times;</button>
+      <h2 id="modalTitle" class="modal-title"></h2>
+      <p id="modalText" class="modal-text"></p>
+    </div>
+  </div>
+
+  <script>
+    const info = {
+      alegria: {
+        title: "Alegria",
+        text: "A Alegria ajuda a ver o lado bom das coisas! Quando você se sente feliz, seu coração fica leve e você quer brincar e sorrir. Que tal desenhar algo que te deixa feliz?"
+      },
+      tristeza: {
+        title: "Tristeza",
+        text: "A Tristeza ajuda a gente a pedir ajuda e entender o que é importante. Chorar também é importante às vezes. Você se lembra de algo que te deixou triste e depois ficou melhor?"
+      },
+      raiva: {
+        title: "Raiva",
+        text: "A Raiva aparece quando algo é injusto ou frustrante. É bom respirar fundo, contar até 10 ou apertar um travesseiro para se acalmar."
+      },
+      medo: {
+        title: "Medo",
+        text: "O Medo nos protege de perigos. Ele te ajuda a pensar duas vezes antes de fazer algo arriscado. Fale com um adulto sempre que sentir medo."
+      },
+      nojinho: {
+        title: "Nojinho",
+        text: "O Nojinho evita que a gente coma ou faça algo perigoso. Você já sentiu nojo de algo estranho ou esquisito? Isso é normal!"
+      }
+    };
+
+    function openModal(emocao) {
+      const content = info[emocao];
+      document.getElementById('modalTitle').textContent = content.title;
+      document.getElementById('modalText').textContent = content.text;
+      document.getElementById('modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

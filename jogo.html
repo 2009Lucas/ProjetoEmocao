@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adivinhe a Emoção</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./stylejogo.css">
+</head>
+<body>
+  <header>
+    <h1>Adivinhe a Emoção!
+      <br>
+      Leia a situação e escolha a emoção certa.
+    </h1>
+   
+  </header>
+
+  <div class="container">
+    <div class="pergunta" id="pergunta">Carregando...</div>
+    <div class="botoes">
+      <button class="botao-emocao alegria" onclick="responder('alegria')"><img src="Assets/img/AlegriaImagem.webp" alt=""></button>
+      <button class="botao-emocao tristeza" onclick="responder('tristeza')"><img src="Assets/img/TristeImagem.jpg" alt=""></button>
+      <button class="botao-emocao raiva" onclick="responder('raiva')"><img src="Assets/img/RaivaImagem.jpg" alt=""></button>
+      <button class="botao-emocao medo" onclick="responder('medo')"><img src="Assets/img/MedoImagem.png" alt=""></button>
+      <button class="botao-emocao nojinho" onclick="responder('nojinho')"><img src="Assets/img/NojoImagem.jpg" alt=""></button>
+    </div>
+    <div class="pontuacao" id="pontuacao"></div>
+    <div class="fim" id="fim"></div>
+    <button class="reiniciar" onclick="reiniciar()" style="display:none;" id="botaoReiniciar">Jogar Novamente</button>
+  </div>
+
+  <script>
+    const perguntas = [
+      { pergunta: "Você tirou nota 10 na prova!", resposta: "alegria" },
+      { pergunta: "Seu amigo quebrou seu brinquedo favorito.", resposta: "raiva" },
+      { pergunta: "Você viu uma aranha gigante no quarto.", resposta: "medo" },
+      { pergunta: "Você comeu algo estragado.", resposta: "nojinho" },
+      { pergunta: "Seu melhor amigo vai se mudar de cidade.", resposta: "tristeza" },
+      { pergunta: "Você ganhou um presente surpresa!", resposta: "alegria" },
+      { pergunta: "Alguém furou a fila na sua frente.", resposta: "raiva" },
+      { pergunta: "Você perdeu seu brinquedo.", resposta: "tristeza" },
+      { pergunta: "Você viu comida estragada no lixo.", resposta: "nojinho" },
+      { pergunta: "Você ficou sozinho no escuro.", resposta: "medo" }
+    ];
+
+    let perguntaAtual = 0;
+    let pontos = 0;
+
+    function mostrarPergunta() {
+      if (perguntaAtual < perguntas.length) {
+        document.getElementById("pergunta").textContent = perguntas[perguntaAtual].pergunta;
+        document.getElementById("pontuacao").textContent = `Pontuação: ${pontos}`;
+      } else {
+        document.getElementById("pergunta").textContent = "";
+        document.getElementById("fim").textContent = `Fim de jogo! Você acertou ${pontos} de ${perguntas.length}.`;
+        document.getElementById("botaoReiniciar").style.display = "inline-block";
+      }
+    }
+
+    function responder(emocaoEscolhida) {
+      const correta = perguntas[perguntaAtual].resposta;
+      if (emocaoEscolhida === correta) {
+        pontos++;
+      }
+      perguntaAtual++;
+      mostrarPergunta();
+    }
+
+    function reiniciar() {
+      perguntaAtual = 0;
+      pontos = 0;
+      document.getElementById("fim").textContent = "";
+      document.getElementById("botaoReiniciar").style.display = "none";
+      mostrarPergunta();
+    }
+
+    perguntas.sort(() => Math.random() - 0.5);
+    mostrarPergunta();
+  </script>
+</body>
+</html>
